@@ -1,3 +1,4 @@
+/*
 package com.automation.Steps;
 
 import com.automation.Pages.Homepage;
@@ -22,5 +23,12 @@ public void user_clicks_on_AB_testing_link(){
 public void user_navigates_to_AB_Testing_page() {
         homepage.VerifyABTestingPage();
     }
+
+    @Then("^verify \"([^\"]*)\" link on homepage$")
+    public void verifyLinkOnHomePage(String lnkName) {
+    homepage.verifyLinks(lnkName);
+
+    }
 }
 
+*/

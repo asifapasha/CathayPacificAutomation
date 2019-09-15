@@ -10,7 +10,8 @@ import static com.automation.Utils.DriverUtils.getDriver;
 import static com.automation.Utils.WebDriverElements.waitForVisible;
 
 public class CommonUtils {
-    public static void clickOn(WebElement element) {
+    public static void clickOn(WebElement element)  {
+        System.out.print("***Clicking on button****");
         waitForVisible(element);
         element.click();
     }
