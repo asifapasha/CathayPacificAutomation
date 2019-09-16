@@ -37,6 +37,13 @@
             <artifactId>maven-cucumber-reporting</artifactId>
             <version>0.0.2</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.temyers/cucumber-jvm-parallel-plugin -->
+        <dependency>
+            <groupId>com.github.temyers</groupId>
+            <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -46,7 +53,13 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.0</version>
                 <configuration>
+                    <parallel>classes</parallel>
+                    <forkMode>perthread</forkMode>
+                    <threadCount>2</threadCount>
                     <testFailureIgnore>true</testFailureIgnore>
+                    <includes>
+                        <include>**//*Runner.java</include>
+                    </includes>
                 </configuration>
             </plugin>
             <plugin>
@@ -61,9 +74,9 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>CucumberWebGui</projectName>
-                            <outputDirectory>${project.build.directory}/cucumber-report</outputDirectory>
-                            <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
+                            <projectName>Parallel execution-Automation Framework</projectName>
+                            <outputDirectory>${project.build.directory}/cucumber-graph-report</outputDirectory>
+                            <cucumberOutput>${project.build.directory}/</cucumberOutput>
                         </configuration>
                     </execution>
                 </executions>
